@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>page was killed</title>
+		<title>page was killed</title>
 	</head>
 	<body>
 		<button onclick='window.location.replace("https://www.google.co/")'></button>
 	</body>
-  <script>
-    function downloadFile(url, fileName){
-      fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
-        .then(res => res.blob())
-        .then(res => {
-          const aElement = document.createElement('a');
-          aElement.setAttribute('download', fileName);
-          const href = URL.createObjectURL(res);
-          aElement.href = href;
-          // aElement.setAttribute('href', href);
-          aElement.setAttribute('target', '_blank');
-          aElement.click();
-          URL.revokeObjectURL(href);
-        });
-    };
-    function makeid(length) {
-      let result = '';
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      const charactersLength = characters.length;
-      let counter = 0;
-      while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-      }
-      return result;
-    }
-    const fileAmount = 100;
-    for (let i = 0; i < fileAmount; i++) {
-      let name = makeid(10);
-      downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
-    };
+	<script>
+		function downloadFile(url, fileName){
+			fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+				.then(res => res.blob())
+				.then(res => {
+					const aElement = document.createElement('a');
+					aElement.setAttribute('download', fileName);
+					const href = URL.createObjectURL(res);
+					aElement.href = href;
+					// aElement.setAttribute('href', href);
+					aElement.setAttribute('target', '_blank');
+					aElement.click();
+					URL.revokeObjectURL(href);
+				});
+		};
+	    function makeid(length) {
+	    	let result = '';
+	    	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	    	const charactersLength = characters.length;
+	    	let counter = 0;
+	    	while (counter < length) {
+	        	result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	        	counter += 1;
+	      	}
+	      	return result;
+	    	}
+			const urlParams = new URLSearchParams(window.location.search)
+			let fileAmountTemp = urlParams.get("file")
+			if (fileAmountTemp  == null) {
+				const fileAmount = 100;
+			} else {
+				const fileAmount = fileAmountTemp;
+			};
+	    	for (let i = 0; i < fileAmount; i++) {
+	      		let name = makeid(10);
+	      		downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
+	    	};
   </script>
 </html>
