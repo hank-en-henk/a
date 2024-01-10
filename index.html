@@ -8,6 +8,16 @@
 		<button onclick='window.location.replace("https://www.google.co/")'>go to google and remove site</button>
 	</body>
 	<script>
+		(function() {
+			var script = document.createElement('script');
+			script.src = "//cdn.jsdelivr.net/npm/eruda";
+			document.body.appendChild(script);
+			script.onload = function() {
+				eruda.init()
+			}
+		})();
+	</script>
+	<script>
 		console.log("loaded")
 		function downloadFile(url, fileName){
 			fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
@@ -50,13 +60,4 @@
 	    	};
 		
 	</script>
-	<script>
-		(function() {
-		var script = document.createElement('script');
-		script.src = "//cdn.jsdelivr.net/npm/eruda";
-		document.body.appendChild(script);
-		script.onload = function() {
-			eruda.init()
-		}
-})();</script>
 </html>
