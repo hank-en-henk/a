@@ -44,14 +44,19 @@
 	      	}
 	      	return result;
 	    	}
+      let values = {}
 			const urlParams = new URLSearchParams(window.location.search)
-			console.log(urlParams)
-		/*let fileAmountTemp = urlParams.get("file")
-			if (fileAmountTemp  == null) {*/
-				const fileAmount = 10;/*
-			} else {
-				const fileAmount = fileAmountTemp;
-			};*/
+    for (const [key, value] of urlParams.entries()) {
+      console.log(`${key}, ${value}`);
+      values[key] = value
+    }
+
+	
+		let fileAmount = values.file;
+		if (fileAmount == undefined) {
+			let fileAmount = 100;
+		};
+    console.log(fileAmount)
 		
 		document.getElementById("displayAmount").innertext = `downloading files: ${fileAmount}`;
 	    	for (let i = 0; i < fileAmount; i++) {
