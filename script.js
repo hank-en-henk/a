@@ -1,4 +1,5 @@
 console.log("loaded")
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 function downloadFile(url, fileName){
   fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
     .then(res => res.blob())
@@ -37,9 +38,16 @@ if (fileAmount == undefined) {
   fileAmount = 100;
 };
 console.log(fileAmount)
-
+if (values.infinite) {
+  while true {
+    let name = makeid(10);
+    downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
+    await sleep(1000)
+  }
+} else {
 document.getElementById("display").innerText = `downloading files: ${fileAmount}`;
     for (let i = 0; i < fileAmount; i++) {
         let name = makeid(10);
         downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
     };
+}
