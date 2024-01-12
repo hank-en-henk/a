@@ -1,5 +1,6 @@
-console.log("loaded")
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+console.log("loaded");
+document.getElementById("test").innerText = "loaded";
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 function downloadFile(url, fileName){
   fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
     .then(res => res.blob())
