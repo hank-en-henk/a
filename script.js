@@ -1,12 +1,11 @@
-let version = 2
+let version = 3
 console.log("loaded");
 console.log(`v${version}`)
-document.getElementById("test").innerText = `v${version}`
+document.getElementById("test").innerText = `loaded script v${version}`
 
 const tagInput = document.querySelector("input#tagInput")
 const tagOutput = document.querySelector("p#tagOutput")
 
-document.getElementById("test").innerText = "loaded";
 function downloadFile(url, fileName){
   fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
     .then(res => res.blob())
