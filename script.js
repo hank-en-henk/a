@@ -52,5 +52,6 @@ document.getElementById("display").innerText = `downloading files: ${fileAmount}
 }
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
   let list = JSON.parse(localStorage.getItem("tags"))
+  console.log("tag check")
   console.log(list)
 }
