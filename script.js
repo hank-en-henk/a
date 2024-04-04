@@ -1,4 +1,4 @@
-console.log("loaded");
+console.log("loaded v1");
 
 const tagInput = document.querySelector("input#tagInput")
 const tagOutput = document.querySelector("p#tagOutput")
