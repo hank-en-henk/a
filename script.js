@@ -62,7 +62,7 @@ if (JSON.parse(localStorage.getItem("tags")) == null) {
 };
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
   let list = JSON.parse(localStorage.getItem("tags"))
-  let item = list.find((item)=>item==tagInput.value
+  let item = list.find((item)=>item==tagInput.value)
   console.log("tag check")
   console.log(list)
   console.log(item)
