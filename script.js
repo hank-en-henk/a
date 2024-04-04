@@ -1,4 +1,4 @@
-let version = 3
+let version = 4
 console.log("loaded");
 console.log(`v${version}`)
 document.getElementById("test").innerText = `loaded script v${version}`
@@ -70,9 +70,9 @@ document.getElementById("tagCheck").addEventListener("click",(event)=>{
   console.log(item)
   if (item) {
     tagOutput.innerText = `the tag '${tagInput.value}' was found`
-    tagOutput.styles.color = "green"
+    tagOutput.style.color = "green"
   } else {
     tagOutput.innerText = `the tag '${tagInput.value}' was not found`
-    tagOutput.styles.color = "red"
+    tagOutput.style.color = "red"
   }
 });
