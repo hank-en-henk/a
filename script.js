@@ -51,7 +51,9 @@ document.getElementById("display").innerText = `downloading files: ${fileAmount}
     };
 }
 
+console.log(localStorage.getItem("tags"))
 if (JSON.parse(localStorage.getItem("tags")) == null) {
+  console.log("setting to standard")
   localStorage.setItem("tags","[]")
 };
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
