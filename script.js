@@ -1,4 +1,7 @@
-console.log("loaded v1");
+let version = 2
+console.log("loaded");
+console.log(`v${version}`)
+document.getElementById("test").innerText = `v${version}`
 
 const tagInput = document.querySelector("input#tagInput")
 const tagOutput = document.querySelector("p#tagOutput")
