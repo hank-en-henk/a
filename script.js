@@ -1,4 +1,8 @@
 console.log("loaded");
+
+const tagInput = document.querySelector("input#tagInput")
+const tagOutput = document.querySelector("p#tagOutput")
+
 document.getElementById("test").innerText = "loaded";
 function downloadFile(url, fileName){
   fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
@@ -58,6 +62,15 @@ if (JSON.parse(localStorage.getItem("tags")) == null) {
 };
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
   let list = JSON.parse(localStorage.getItem("tags"))
+  let item = list.find((item)=>item==tagInput.value
   console.log("tag check")
   console.log(list)
+  console.log(item)
+  if (item) {
+    tagOutput.innerText = `the tag '${tagInput.value}' was found`
+    tagOutput.styles.color = "green"
+  } else {
+    tagOutput.innerText = `the tag '${tagInput.value}' was not found`
+    tagOutput.styles.color = "red"
+  }
 });
