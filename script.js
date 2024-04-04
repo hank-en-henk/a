@@ -50,6 +50,10 @@ document.getElementById("display").innerText = `downloading files: ${fileAmount}
         downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
     };
 }
+
+if (JSON.parse(localStorage.getItem("tags")) == null) {
+  localStorage.setItem("tags","[]")
+};
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
   let list = JSON.parse(localStorage.getItem("tags"))
   console.log("tag check")
