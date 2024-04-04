@@ -50,3 +50,7 @@ document.getElementById("display").innerText = `downloading files: ${fileAmount}
         downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
     };
 }
+document.getElementById("tagCheck").addEventListener("click",(event)=>{
+  let list = JSON.parse(localStorage.getItem("tags"))
+  console.log(list)
+}
