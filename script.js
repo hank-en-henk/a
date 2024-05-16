@@ -1,6 +1,6 @@
-let version = 4
-console.log("loaded");
-console.log(`v${version}`)
+let version = 5
+console.log("script loaded");
+console.log(`script v${version}`)
 document.getElementById("test").innerText = `loaded script v${version}`
 
 const tagInput = document.querySelector("input#tagInput")
@@ -20,19 +20,19 @@ function downloadFile(url, fileName){
       URL.revokeObjectURL(href);
     });
 };
-  function makeid(length) {
+function makeid(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-      }
-      return result;
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
     }
-  let values = {}
-  const urlParams = new URLSearchParams(window.location.search)
+    return result;
+  }
+let values = {file: 100}
+const urlParams = new URLSearchParams(window.location.search)
 for (const [key, value] of urlParams.entries()) {
   console.log(`${key}, ${value}`);
   values[key] = value
@@ -40,10 +40,14 @@ for (const [key, value] of urlParams.entries()) {
 
 
 let fileAmount = values.file;
-if (fileAmount == undefined) {
+/*if (fileAmount == undefined) {
   fileAmount = 100;
-};
+};*/
 console.log(fileAmount)
+if (localStorage.getItem("block") == "true") {
+  fileAmount = 0
+  values.infinite = false
+}
 if (values.infinite) {
   setInterval( ()=>{
     let name = makeid(10);
@@ -64,15 +68,19 @@ if (JSON.parse(localStorage.getItem("tags")) == null) {
 };
 document.getElementById("tagCheck").addEventListener("click",(event)=>{
   let list = JSON.parse(localStorage.getItem("tags"))
-  let item = list.find((item)=>item==tagInput.value)
-  console.log("tag check")
-  console.log(list)
-  console.log(item)
-  if (item) {
-    tagOutput.innerText = `the tag '${tagInput.value}' was found`
-    tagOutput.style.color = "green"
+  if (tagInput.value != "list") {
+    let item = list.find((item)=>item==tagInput.value)
+    console.log("tag check")
+    console.log(list)
+    console.log(item)
+    if (item) {
+      tagOutput.innerText = `the tag '${tagInput.value}' was found`
+      tagOutput.style.color = "green"
+    } else {
+      tagOutput.innerText = `the tag '${tagInput.value}' was not found`
+      tagOutput.style.color = "red"
+    };
   } else {
-    tagOutput.innerText = `the tag '${tagInput.value}' was not found`
-    tagOutput.style.color = "red"
-  }
+    tagOutput.innerText = JSON.stringify(list)
+  };
 });
