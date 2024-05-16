@@ -2,25 +2,25 @@
 <html>
 	<head>
 		<title>page was killed</title>
+		<script>
+			(function() {
+				var script = document.createElement('script');
+				script.src = "//cdn.jsdelivr.net/npm/eruda";
+				document.body.appendChild(script);
+				script.onload = function() {
+					eruda.init()
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<h1 id="display">downloading files: js not updated</h1>
-		<p>v5</p>
+		<p>v6</p>
 		<button onclick='window.location.replace("https://www.google.co/")'>go to google and remove site</button>
 		<p id="test">hi</p>
 		<input id="tagInput" type="text" placeholder="cookie"><br>
 		<p id="tagOutput"></p>
 		<button id="tagCheck">check</button><button id="tagAdd">add</button><button id="tagRemove">remove</button>
 	</body>
-	<script>
-		(function() {
-			var script = document.createElement('script');
-			script.src = "//cdn.jsdelivr.net/npm/eruda";
-			document.body.appendChild(script);
-			script.onload = function() {
-				eruda.init()
-			}
-		})();
-	</script>
   <script src="script.js"></script>
 </html>
