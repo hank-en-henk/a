@@ -20,17 +20,9 @@ function downloadFile(url, fileName){
       URL.revokeObjectURL(href);
     });
 };
-function makeid(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-  }
+
+const makeId = crypto.randomUUID;
+
 let values = {file: 100}
 const urlParams = new URLSearchParams(window.location.search)
 for (const [key, value] of urlParams.entries()) {
