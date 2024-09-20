@@ -21,8 +21,6 @@ function downloadFile(url, fileName){
     });
 };
 
-const makeId = crypto.randomUUID;
-
 let values = {file: 100}
 const urlParams = new URLSearchParams(window.location.search)
 for (const [key, value] of urlParams.entries()) {
@@ -42,13 +40,13 @@ if (localStorage.getItem("block") == "true") {
 }
 if (values.infinite) {
   setInterval( ()=>{
-    let name = makeid(10);
+    let name = crypto.randomUUID();
     downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
   },100);
 } else {
 document.getElementById("display").innerText = `downloading files: ${fileAmount}`;
     for (let i = 0; i < fileAmount; i++) {
-        let name = makeid(10);
+        let name = crypto.randomUUID();
         downloadFile('https://www.africau.edu/images/default/sample.pdf', name += ".pdf");
     };
 }
